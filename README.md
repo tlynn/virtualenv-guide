@@ -28,7 +28,7 @@ so you might prefer to read that first.
 
 There's a very short guide in [this Stack Overflow answer][g2].
 
-[g2]: http://stackoverflow.com/a/5177027
+[g2]: https://stackoverflow.com/a/5177027
 
 
 Quick start
