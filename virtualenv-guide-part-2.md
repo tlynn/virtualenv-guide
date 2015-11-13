@@ -53,6 +53,14 @@ because you are not running a "bash compatible" shell.
 [2]: https://virtualenv.pypa.io/en/latest/userguide.html#activate-script
 
 
+Deactivating the virtualenv directory
+-------------------------------------
+
+Run:
+
+    deactivate
+
+
 Activating the virtualenv directory from Python
 -----------------------------------------------
 
@@ -68,14 +76,6 @@ where _ENV_ is the location of the virtualenv directory and `bin` should be
 
 Python 3 has removed the `execfile` function, and its replacement, the `runpy`
 module, doesn't work for this purpose.
-
-
-Deactivating the virtualenv directory
--------------------------------------
-
-Run:
-
-    deactivate
 
 
 About this guide
