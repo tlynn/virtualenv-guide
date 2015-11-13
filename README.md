@@ -18,6 +18,12 @@ together with a `python` command that can import and run them.
 The steps are explained in more detail in the sections below.
 
 
+The official [virtualenv documentation][0] is a bit easier to read than this,
+so you might prefer to read that first.
+
+[0]: https://virtualenv.pypa.io/en/latest/installation.html
+
+
 Quick start
 -----------
 
