@@ -34,6 +34,10 @@ other software you run will be able to modify it.
 If this is a risk for you, you should follow these instructions within a more
 secure environment, such as a separate user account or a separate machine.
 
+If you trust your operating system to enforce security boundaries and have
+administrative privileges, you may alternatively use your system's package
+manager to install Python packages system-wide rather than using virtualenv.
+
 
 Get `python`
 ------------
