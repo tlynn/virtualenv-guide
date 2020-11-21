@@ -50,7 +50,7 @@ On other platforms you usually need to add a ". " (a dot and a space) first:
 See the [activate documentation][2] if that doesn't work for you, for instance
 because you are not running a "bash compatible" shell.
 
-[2]: https://virtualenv.pypa.io/en/latest/userguide.html#activate-script
+[2]: https://virtualenv.readthedocs.org/en/latest/userguide.html#activate-script
 
 
 Deactivating the virtualenv directory
