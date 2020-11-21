@@ -9,8 +9,7 @@ The steps are:
   1. Get `python`.
   2. Get `virtualenv`.
   3. Use `virtualenv` to create a directory including `pip`.
-  4. Use `pip` to upgrade itself.
-  5. Use `pip` to install the packages, and any other packages they need.
+  4. Use `pip` to install the packages, and any other packages they need.
 
 This approach results in a "virtualenv directory" containing the packages,
 together with a `python` command that can import and run them.
@@ -21,77 +20,33 @@ The steps are explained in more detail in the sections below.
 Alternative guides
 ------------------
 
-The official [virtualenv documentation][g1] is a bit easier to read than this,
-so you might prefer to read that first.
+The official [virtualenv documentation][DOCS] is quite readable.
 
-[g1]: https://virtualenv.readthedocs.org/en/latest/installation.html
-
-There's a very short guide in [this Stack Overflow answer][g2].
-
-[g2]: https://stackoverflow.com/a/5177027
-
-
-Quick start
------------
-
-On some platforms `python` and `virtualenv` are already installed (the first
-two steps), and the remaining three steps can be completed by running:
-
-    virtualenv ENV
-    ENV/bin/pip install -U pip        # Use "ENV/Scripts/pip" on Windows.
-    ENV/bin/pip install -U PACKAGE
-
-where _ENV_ is a name for the virtualenv directory to create, and
-_PACKAGE_ is the name of the package to install.
-
-You can choose whatever name you like for the virtualenv directory.  This
-guide will keep calling it `ENV`.
-
-
-If this works for you, you can stop reading now.  Otherwise, read on as we
-cover each step in more depth.
+[DOCS]: https://virtualenv.readthedocs.org/en/latest/installation.html
 
 
 Get `python`
 ------------
 
-You may already have Python installed, or you may be able to install it from your system's package manager.
-
-Run `python --version`.  If it prints a suitable version, you can skip this
-step.  If not, some systems will suggest further steps at this point.
-See the documentation of the packages you are trying to install to find out
-what counts as a suitable version.
-
-Otherwise, download and install Python from https://www.python.org.  Add it to
-your PATH, which is an option in the installer in recent versions of Python.
+Install the latest version of Python, either via your system's package manager
+or by downloading and running an installer from https://www.python.org/.
 
 
 Get `virtualenv`
 ----------------
 
-You may already have virtualenv installed, or you may be able to install it
-from your system's package manager.
+Download the latest [virtualenv zipapp file][ZIPAPP].
 
-Run `virtualenv --version`.  If it prints a suitable version, you can skip
-this step.  If not, some systems will suggest further steps at this point.
-A suitable version usually means a recent one, but you may be happy to settle
-for anything that works.
+[ZIPAPP]: https://bootstrap.pypa.io/virtualenv.pyz
 
-Otherwise, download and unzip the latest virtualenv zip file from
-[here](https://github.com/pypa/virtualenv/releases) (which also tells you
-which versions are recent).  Use `python UNZIPPED/virtualenv.py` as
-`virtualenv` in the rest of this guide, where _UNZIPPED_ is the unzipped
-directory.
+In place of `virtualenv` below, use:
 
-One way to unzip the downloaded virtualenv zip file (_ZIPFILE_) is to use:
+    python <DOWNLOADS>/virtualenv.pyz
 
-    python -m zipfile -e ZIPFILE .
+where `<DOWNLOADS>` is the directory containing the downloaded file.
 
-That only works with a recent version of Python, but you probably know how to
-unzip files anyway.
-
-See https://virtualenv.readthedocs.org/en/latest/installation.html if you need further
-help on installing `virtualenv` itself.
+See the [virtualenv documentation][DOCS] for help on installing `virtualenv`
+more permanently.
 
 
 Use `virtualenv` to create a directory including `pip`
@@ -99,21 +54,12 @@ Use `virtualenv` to create a directory including `pip`
 
 Run:
 
-    virtualenv ENV
+    virtualenv <ENV>
 
-where _ENV_ is the directory to create.  You may use something other than
-`virtualenv`, as suggested in the previous step.
+where `<ENV>` is the "virtualenv directory" to create.
 
-
-Use `pip` to upgrade itself
----------------------------
-
-Run:
-
-    ENV/bin/pip install -U pip
-
-where _ENV_ is the virtualenv directory, and `bin` should be `Scripts` on
-Windows.
+You may use something other than `virtualenv`, as suggested in the previous
+step.
 
 
 Use `pip` to install the packages, and any other packages they need
@@ -121,40 +67,45 @@ Use `pip` to install the packages, and any other packages they need
 
 Run:
 
-    ENV/bin/pip install -U PACKAGE
+    <ENV>/bin/pip install -U <PACKAGE>
 
-or:
+where `<ENV>` is the virtualenv directory, `<PACKAGE>` is the package name,
+and `bin` should be changed to `Scripts` if you are using Windows.
 
-    ENV/bin/pip install -U -r requirements.txt
+Alternatively, to install multiple packages, run:
 
-where _ENV_ is the virtualenv directory, _PACKAGE_ is the package name,
-and `bin` should be `Scripts` on Windows.
+    <ENV>/bin/pip install -U -r requirements.txt
 
-`requirements.txt` is a list of the packages to install, one per line.
+where `requirements.txt` is a list of the packages to install, one per line.
 
 Each package name may be immediately followed (without a space) by a version
 specifier such as `==1.2.0` or `>=1.2.0`.  The other details of what can be
-put in these files are explained [here][1].
+put in these files are explained [here][REQS].
 
-[1]: https://pip.readthedocs.org/en/stable/user_guide/#requirements-files
+[REQS]: https://pip.readthedocs.org/en/stable/user_guide/#requirements-files
 
 If your package fails to install, try updating the `setuptools` and `wheel`
 packages and then try again:
 
-    ENV/bin/pip install -U setuptools
-    ENV/bin/pip install -U wheel
+    <ENV>/bin/pip install -U setuptools
+    <ENV>/bin/pip install -U wheel
 
-Otherwise, the most common cause of problems is that the package depends on
-a working C compiler with the right header files available to it.  This
-usually involves installing the right system packages, for instance with
-`apt-get install SYSPACKAGE` on Debian/Ubuntu Linux.  Unfortunately, guessing
-what _SYSPACKAGE_ should be often involves searching the web for the error
-message you're getting.
+The next most common cause of problems is that the package depends on a
+working C compiler with the right header files available to it.  This usually
+involves installing the right system packages, for instance with
+`apt install SYSPACKAGE` on Debian/Ubuntu Linux, which may require searching
+the web to find which ones you need.
 
 You can find out what Python package versions have been installed in your
 virtualenv directory by running:
 
-    ENV/bin/pip freeze
+    <ENV>/bin/pip freeze
+
+
+Troubleshooting
+---------------
+
+Search the web for the exact error message you're getting.
 
 
 Conclusion
@@ -165,16 +116,16 @@ more of them as you need them.
 
 You can test it by running:
 
-    ENV/bin/python       # Use "ENV/Scripts/python" on Windows.
+    <ENV>/bin/python       # Use "<ENV>/Scripts/python" on Windows.
 
 You should then be able to import the modules from the packages you installed
 by typing:
 
 ```#python
-    import MODULE
+import <MODULE>
 ```
 
-where _MODULE_ is an appropriate module name.  (Type `quit()` to exit Python).
+where `<MODULE>` is an appropriate module name.  (Type `quit()` to exit Python).
 
 You can also run any of the commands in the `bin` or `Scripts` directory, and
 they will be able to use the installed packages.

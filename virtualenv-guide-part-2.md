@@ -11,7 +11,7 @@ Inside a virtualenv directory
 The directory created by `virtualenv` contains Python packages and other files
 that they need to run.  Inside, it looks like this:
 
-    ENV/
+    <ENV>/
         # On Windows, "bin" is called "Scripts"
         bin/     <-- commands
             pip
@@ -41,11 +41,11 @@ typing `pip` will work.
 
 If you are running on Windows, you just need to run:
 
-    ENV/Scripts/activate
+    <ENV>/Scripts/activate
 
 On other platforms you usually need to add a ". " (a dot and a space) first:
 
-    . ENV/bin/activate
+    . <ENV>/bin/activate
 
 See the [activate documentation][2] if that doesn't work for you, for instance
 because you are not running a "bash compatible" shell.
@@ -68,10 +68,10 @@ There is also an `activate_this.py` module alongside the `activate` script.
 This lets a Python 2 interpreter outside the virtualenv directory gain access
 to the modules installed in the directory by using:
 
-    execfile(r'ENV/bin/activate_this.py',
-             dict(__file__=r'ENV/bin/activate_this.py'))
+    execfile(r'<ENV>/bin/activate_this.py',
+             dict(__file__=r'<ENV>/bin/activate_this.py'))
 
-where _ENV_ is the location of the virtualenv directory and `bin` should be
+where `<ENV>` is the location of the virtualenv directory and `bin` should be
 `Scripts` on Windows.
 
 Python 3 has removed the `execfile` function, and its replacement, the `runpy`
