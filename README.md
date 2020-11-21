@@ -24,7 +24,7 @@ Alternative guides
 The official [virtualenv documentation][g1] is a bit easier to read than this,
 so you might prefer to read that first.
 
-[g1]: https://virtualenv.pypa.io/en/latest/installation.html
+[g1]: https://virtualenv.readthedocs.org/en/latest/installation.html
 
 There's a very short guide in [this Stack Overflow answer][g2].
 
@@ -90,7 +90,7 @@ One way to unzip the downloaded virtualenv zip file (_ZIPFILE_) is to use:
 That only works with a recent version of Python, but you probably know how to
 unzip files anyway.
 
-See https://virtualenv.pypa.io/en/latest/installation.html if you need further
+See https://virtualenv.readthedocs.org/en/latest/installation.html if you need further
 help on installing `virtualenv` itself.
 
 
