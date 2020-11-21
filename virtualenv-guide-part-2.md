@@ -65,17 +65,14 @@ Activating the virtualenv directory from Python
 -----------------------------------------------
 
 There is also an `activate_this.py` module alongside the `activate` script.
-This lets a Python 2 interpreter outside the virtualenv directory gain access
+This lets a Python interpreter outside the virtualenv directory gain access
 to the modules installed in the directory by using:
 
-    execfile(r'<ENV>/bin/activate_this.py',
-             dict(__file__=r'<ENV>/bin/activate_this.py'))
+    with open(r'<ENV>/bin/activate_this.py') as f:
+        exec(f.read(), dict(__file__=f.name))
 
 where `<ENV>` is the location of the virtualenv directory and `bin` should be
 `Scripts` on Windows.
-
-Python 3 has removed the `execfile` function, and its replacement, the `runpy`
-module, doesn't work for this purpose.
 
 
 About this guide
