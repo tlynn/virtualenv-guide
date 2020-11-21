@@ -25,6 +25,16 @@ The official [virtualenv documentation][DOCS] is quite readable.
 [DOCS]: https://virtualenv.readthedocs.org/en/latest/installation.html
 
 
+Security
+--------
+
+This guide describes installing software as your current user.  This means
+other software you run will be able to modify it.
+
+If this is a risk for you, you should follow these instructions within a more
+secure environment, such as a separate user account or a separate machine.
+
+
 Get `python`
 ------------
 
